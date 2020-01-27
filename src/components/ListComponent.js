@@ -2,6 +2,8 @@ import React from 'react';
 import PostList from './PostList';
 import NewPost from './NewPost';
 
+
+
 class CombinedRecords extends React.Component {
   login() {
     this.props.auth.login();

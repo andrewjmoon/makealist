@@ -33,7 +33,7 @@ const styles = {
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)'
   },
   menuButton: {
-    marginRight: 20
+    marginRight: 1
   },
   title: {
     flexGrow: 3,
@@ -138,9 +138,17 @@ class App extends Component {
           elevation={0}
         >
           <Toolbar className={classes.root}>
-            <Link className={classes.title} to="/home">
+            <Link className={classes.title} to="/listcomponent">
               {' '}
-              Home Page
+              Combined List/Input
+            </Link>
+            <Link className={classes.title} to="/pomodoro">
+              {' '}
+              Pomodor Timer
+            </Link>
+            <Link className={classes.title} to="/resources">
+              {' '}
+              Resources
             </Link>
           </Toolbar>
         </AppBar>

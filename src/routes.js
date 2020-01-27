@@ -16,6 +16,7 @@ import Resources from './components/Resources';
 import PostList from './components/PostList';
 import NewPost from './components/NewPost';
 import ListComponent from './components/ListComponent';
+import Pomodoro from './components/Pomodoro';
 
 const httpLink = createHttpLink({
   uri: GRAPHQL_URL
@@ -33,7 +34,7 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache({
     addTypename: false
@@ -79,6 +80,10 @@ export const makeMainRoutes = () => {
         <Route
           path="/resources"
           render={props => provideClient(<Resources auth={auth} {...props} />)}
+        />
+        <Route
+          path="/pomodoro"
+          render={props => provideClient(<Pomodoro auth={auth} {...props} />)}
         />
         <Route
           path="/listcomponent"

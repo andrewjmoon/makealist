@@ -6,7 +6,7 @@ class Resources extends Component {
   }
   render() {
     const { isAuthenticated } = this.props.auth;
-    
+
     if (isAuthenticated()) {
       return (
         <div className="App">
@@ -16,88 +16,75 @@ class Resources extends Component {
           </h1>
           <ul>
             <li className="Link">
-              Search for an Actor's Filmography
+              Best way to make a todo list on pen and paper.
               <a
                 style={{ color: 'black' }}
-                href="https://www.fandango.com/people/adam-west-719678"
+                href="https://blog.hubspot.com/sales/pen-and-paper-to-do-list"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {' '}
                 <br />
-                https://www.fandango.com/people/adam-west-719678
+                https://blog.hubspot.com/sales/pen-and-paper-to-do-list
               </a>
             </li>
             <br />
             <li className="Link">
-              The IMDb list of the top 100 movies of all time.
+              Wunderlist site.
               <a
                 style={{ color: 'black' }}
-                href="https://www.imdb.com/list/ls055592025/"
+                href="https://www.wunderlist.com/windows/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {' '}
                 <br />
-                https://www.imdb.com/list/ls055592025/
+                https://www.wunderlist.com/windows/
               </a>
             </li>
             <br />
             <li className="Link">
-              The Rotten Tomatoes list of top horror films.
+              Todoist site
               <a
                 style={{ color: 'black' }}
-                href="http://editorial.rottentomatoes.com/guide/best-horror-movies-of-all-time/"
+                href="https://todoist.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {' '}
                 <br />
-                http://editorial.rottentomatoes.com/guide/best-horror-movies-of-all-time/
+                https://todoist.com/
               </a>
             </li>
             <br />
             <li className="Link">
-              The Rotten Tomatoes list of top classic films.
+              8 ways to make a todo-list according to experts.
               <a
                 style={{ color: 'black' }}
-                href="https://www.rottentomatoes.com/top/bestofrt/top_100_classics_movies/"
+                href="https://www.themuse.com/advice/8-expertbacked-secrets-to-making-the-perfect-todo-list"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {' '}
                 <br />
-                https://www.rottentomatoes.com/top/bestofrt/top_100_classics_movies/
+                https://www.themuse.com/advice/8-expertbacked-secrets-to-making-the-perfect-todo-list
               </a>
             </li>
             <br />
             <li className="Link">
-              The Cinemaholic's List of best suspense films.
+              7 to-do list hacks for a more productive day.
               <a
                 style={{ color: 'black' }}
-                href="https://www.thecinemaholic.com/the-best-suspense-and-mystery-movies-of-all-time-ranked/"
+                href="https://www.theladders.com/career-advice/7-to-do-list-hacks-thatll-help-you-be-more-productive-every-day"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {' '}
                 <br />
-                https://www.thecinemaholic.com/the-best-suspense-and-mystery-movies-of-all-time-ranked/
+                https://www.theladders.com/career-advice/7-to-do-list-hacks-thatll-help-you-be-more-productive-every-day
               </a>
             </li>
             <br />
-            <li className="Link">
-              The townandcountry's list of 27 classic Halloween Movies.
-              <a
-                style={{ color: 'black' }}
-                href="https://www.townandcountrymag.com/leisure/g12107335/best-classic-halloween-movies/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {' '}
-                <br />
-                https://www.townandcountrymag.com/leisure/g12107335/best-classic-halloween-movies/
-              </a>
-            </li>
           </ul>
         </div>
       );

@@ -20,3 +20,18 @@
 .App-link {
   color: #09d3ac;
 }
+
+body {
+  display: grid;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+th {
+  text-align: center;
+  border: 1px solid black;
+  background: #018ded;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}

@@ -55,6 +55,28 @@ class Home extends Component {
           </Button>
           <br />
           <br />
+          <Button
+            component={Link}
+            variant="contained"
+            className="center"
+            to="/listcomponent"
+            color="primary"
+          >
+            Combined List/Input
+          </Button>
+          <br />
+          <br />
+          <Button
+            component={Link}
+            variant="contained"
+            className="center"
+            to="/pomodoro"
+            color="primary"
+          >
+            Pomodoro Clock
+          </Button>
+          <br />
+          <br />
 
           <Button
             component={Link}

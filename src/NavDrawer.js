@@ -35,7 +35,7 @@ export class NavDrawer extends React.Component {
             <li>
               <Link className="Link" to="/listcomponent">
                 {' '}
-                Lists{' '}
+                Lists/Input{' '}
               </Link>
             </li>
             <Divider />

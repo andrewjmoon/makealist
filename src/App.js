@@ -138,9 +138,13 @@ class App extends Component {
           elevation={0}
         >
           <Toolbar className={classes.root}>
-            <Link className={classes.title} to="/listcomponent">
+            <Link className={classes.title} to="/postlist">
               {' '}
-              Combined List/Input
+              Post List
+            </Link>
+            <Link className={classes.title} to="/postinput">
+              {' '}
+              Post Input
             </Link>
             <Link className={classes.title} to="/pomodoro">
               {' '}

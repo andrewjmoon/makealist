@@ -97,8 +97,15 @@ function PostList() {
   }, []);
   //id="scrollableDiv" style={{ height: 300, overflow: 'auto' }}
   return (
-    <Query query={getList}>
-      {({ data, error, loading, refetch }) => {
+    <Query
+      query={getList}
+      variables={{
+        offset: 0,
+        limit: 10
+      }}
+      fetchPolicy="cache-and-network"
+    >
+      {({ data, error, loading, fetchMore }) => {
         if (loading) return <div>Loading...</div>;
         if (error) return <div>Error...</div>;
         return (
@@ -152,6 +159,23 @@ function PostList() {
                 </ol>
               </InfiniteScroll>
             </div>
+            <button
+              onClick={() => {
+                fetchMore({
+                  variables: {
+                    offset: data.lists.length
+                  },
+                  updateQuery: (prev, { fetchMoreResult }) => {
+                    if (!fetchMoreResult) {
+                      return prev;
+                    }
+                    return Object.assign(prev, fetchMoreResult);
+                  }
+                });
+              }}
+            >
+              Load More
+            </button>
           </div>
         );
       }}

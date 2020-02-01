@@ -48,6 +48,39 @@ class Home extends Component {
             component={Link}
             variant="contained"
             className="center"
+            to="/postlist2"
+            color="primary"
+          >
+            Post List 2
+          </Button>
+          <br />
+          <br />
+          <Button
+            component={Link}
+            variant="contained"
+            className="center"
+            to="/postlist3"
+            color="primary"
+          >
+            Post List 3
+          </Button>
+          <br />
+          <br />
+          <Button
+            component={Link}
+            variant="contained"
+            className="center"
+            to="/postlist4"
+            color="primary"
+          >
+            Post List 4
+          </Button>
+          <br />
+          <br />
+          <Button
+            component={Link}
+            variant="contained"
+            className="center"
             to="/postinput"
             color="primary"
           >

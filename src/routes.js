@@ -14,6 +14,9 @@ import { GRAPHQL_URL } from './constants';
 import About from './components/About';
 import Resources from './components/Resources';
 import PostList from './components/PostList';
+import PostList2 from './components/PostList2';
+import PostList3 from './components/PostList3';
+import PostList4 from './components/PostList4';
 import NewPost from './components/NewPost';
 import ListComponent from './components/ListComponent';
 import Pomodoro from './components/Pomodoro';
@@ -72,6 +75,18 @@ export const makeMainRoutes = () => {
         <Route
           path="/postlist"
           render={props => provideClient(<PostList auth={auth} {...props} />)}
+        />
+        <Route
+          path="/postlist2"
+          render={props => provideClient(<PostList2 auth={auth} {...props} />)}
+        />
+        <Route
+          path="/postlist3"
+          render={props => provideClient(<PostList3 auth={auth} {...props} />)}
+        />
+        <Route
+          path="/postlist4"
+          render={props => provideClient(<PostList4 auth={auth} {...props} />)}
         />
         <Route
           path="/postinput"

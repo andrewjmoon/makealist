@@ -1,6 +1,7 @@
-# HackerNews Clone using React, Apollo-React-Client and Hasura GraphQl Engine
+# Todo App using React, Apollo-React-Client and Hasura GraphQl Engine
 
-[Live Demo](https://hackernews-1919.herokuapp.com/)  
+This is a Todo App where I am trying to add Infinite-Scrolling with Deleting and Adding todo items.  
+
 This application demonstrates consuming GraphQl Api provided by [Hasura GraphQL Engine](https://hasura.io) using a react app. Uses react-apollo GraphQL client to make requests to the api. Users can create account using [Auth0 JWT authentication](https://auth0.com/) which is then verified by Hasura. React-router is used to provide SPA experience.
 
 Authenticated users can:
@@ -62,3 +63,6 @@ See [Setting up Auth0 with react](https://auth0.com/docs/quickstart/spa/react/01
 ## Realtime updates
 
 Using apollo cache and react state, we can give realtime updates for upvotes and new posts. Apollo `refetchQueries` function updates apollo cache with refetched data.
+
+## Issues
+I am trying to solve the issue of getting the Infinite Scroll to work while getting the delete button and adding items to automatically render.  Currently searching for answers to these questions

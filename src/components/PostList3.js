@@ -2,8 +2,8 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import List2 from './List2';
+import List from './List';
 import { getList, deleteList } from './Queries';
-import DeleteList from './DeleteList';
 
 const PostList3 = () => (
   <Query
@@ -12,7 +12,6 @@ const PostList3 = () => (
       offset: 0,
       limit: 6
     }}
-    
   >
     {({ data, fetchMore }) =>
       data && (

@@ -70,10 +70,10 @@ class Home extends Component {
             component={Link}
             variant="contained"
             className="center"
-            to="/postlist4"
+            to="/postlist5"
             color="primary"
           >
-            Post List 4
+            Post List 5
           </Button>
           <br />
           <br />

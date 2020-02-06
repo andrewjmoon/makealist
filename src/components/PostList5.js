@@ -1,62 +1,65 @@
 /*
+import React from 'react';
+import { Query, Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
+import List3 from './List3';
+import List from './List';
+import { getList, deleteList } from './Queries';
+import DeleteList from './DeleteList';
 
-return (
-    <ApolloProvider client={client}>
-      <Subscription
-        subscription={isIn ? PL_WITH_LOVE_SUB : PL_SUB}
-        variables={
-          isIn
-            ? {
-              userId: authState.user.uid
-            }
-            : null
-        }
-      >
-        {({ data, loading, error }) => {
-          if (loading) return "loading...";
-          if (error) return error.message;
+const PostList5 = ({ data }) => {
+  const handleScroll = ({ currentTarget }, onLoadMore) => {
+    if (
+      currentTarget.scrollTop + currentTarget.clientHeight >=
+      currentTarget.scrollHeight
+    ) {
+      onLoadMore();
+    }
+  };
 
-          return (
-            <ul className="pl-list">
-              {data.programming_language.map(pl => {
-                const { name, vote_count } = pl;
-
-                let content = null;
-                if (isIn) {
-                  const isLoved =
-                    pl.lovedLanguagesByname_aggregate.aggregate.count === 1;
-                  if (isLoved) {
-                    content = (
-                      <Mutation mutation={UNLOVE_MUTATION} variables={{ name }}>
-                        {unlove => <button onClick={unlove}>Unlove</button>}
-                      </Mutation>
-                    );
-                  } else {
-                    content = (
-                      <Mutation mutation={LOVE_MUTATION} variables={{ name }}>
-                        {love => <button onClick={love}>Love</button>}
-                      </Mutation>
-                    );
-                  }
+  return (
+    <Query
+      query={getList}
+      variables={{
+        offset: 0,
+        limit: 6
+      }}
+      fetchPolicy="cache-and-network"
+    >
+      {({ data, fetchMore }) =>
+        data && (
+          <List3
+            lists={data.lists || []}
+            onLoadMore=
+            {() =>
+              fetchMore({
+                variables: {
+                  offset: data.lists.length
+                },
+                updateQuery: (prev, { fetchMoreResult }) => {
+                  if (!fetchMoreResult) return prev;
+                  return Object.assign({}, prev, {
+                    lists: [...prev.lists, ...fetchMoreResult.lists]
+                  });
                 }
-
-                return (
-                  <li key={name}>
-                    <span>{`${name} - ${vote_count}`}</span>
-                    <span>
-                      <Mutation mutation={VOTE_MUTATION} variables={{ name }}>
-                        {vote => <button onClick={vote}>Vote</button>}
-                      </Mutation>
-                      {content}
-                    </span>
-                  </li>
-                );
-              })}
+              })
+            }
+            className="list-group chapter-list" onScroll=
+            {e => handleScroll(e, onLoadMore)}
+            <ul>
+            {lists.map(({ id, lists, listname }) => (
+              <li key={id} className="list-group-item">
+                {listname} : {lists}
+              </li>
+            ))}
             </ul>
-          );
-        }}
-      </Subscription>
-    </ApolloProvider>
+          />
+        )
+      }
+    </Query>
   );
-}
+};
+
+export default PostList5;
+
 */

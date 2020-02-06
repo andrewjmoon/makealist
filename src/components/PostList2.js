@@ -30,7 +30,7 @@ function PostList() {
 
   let _isMounted = true;
   //Setting the states from the component.
-  const todoLimit = 10;
+  const limit = 10;
   const [values, setValues] = useState({
     loadedAllLists: false,
     showNew: false,
@@ -43,8 +43,8 @@ function PostList() {
       .query({
         query: getList,
         variables: {
-          todoLimit: 10,
-          todoOffset: 0
+          limit: 10,
+          offset: 0
         }
       })
       .then(data => {
@@ -54,7 +54,7 @@ function PostList() {
           setValues({
             ...values,
             lists: data.data.lists,
-            loadedAllLists: data.data.lists < todoLimit ? true : false
+            loadedAllLists: data.data.lists < limit ? true : false
           });
         }, 1000);
       });
@@ -64,8 +64,8 @@ function PostList() {
       .query({
         query: getList,
         variables: {
-          todoLimit: 10,
-          todoOffset: values.lists.length
+          limit: 10,
+          offset: values.lists.length
         }
       })
       .then(data => {
@@ -76,7 +76,7 @@ function PostList() {
             setValues({
               ...values,
               lists: mergedLists,
-              loadedAllLists: data.data.lists < todoLimit ? true : false
+              loadedAllLists: data.data.lists < limit ? true : false
             });
           }, 1500);
         }
@@ -149,7 +149,11 @@ function PostList() {
                             </ListItem>
 
                             <ListItem justify="center" className={classes.root}>
-                              <DeleteList id={id} />
+                              <DeleteList
+                                id={id}
+                                setValues={setValues}
+                                values={values}
+                              />
                             </ListItem>
                           </List>
                         </Grid>
@@ -159,23 +163,6 @@ function PostList() {
                 </ol>
               </InfiniteScroll>
             </div>
-            <button
-              onClick={() => {
-                fetchMore({
-                  variables: {
-                    offset: data.lists.length
-                  },
-                  updateQuery: (prev, { fetchMoreResult }) => {
-                    if (!fetchMoreResult) {
-                      return prev;
-                    }
-                    return Object.assign(prev, fetchMoreResult);
-                  }
-                });
-              }}
-            >
-              Load More
-            </button>
           </div>
         );
       }}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PostList from './PostList';
-import PostList2 from './PostList2';
+import PostList3 from './PostList3';
 import NewPost from './NewPost';
 import DeleteList from './DeleteList';
 
@@ -16,7 +16,7 @@ class CombinedRecords extends React.Component {
         <div className="App">
           <h1 className="center"> Type in your Lists here: </h1>
           <NewPost userId={userId} />
-          <PostList2 />
+          <PostList3 />
         </div>
       );
     }

@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 const getList = gql`
   query lists($limit: Int, $offset: Int) {
-    lists(limit: $limit, offset: $offset) {
+    lists(limit: $limit, offset: $offset) @connection(key: "lists") {
       id
       listname
       lists
@@ -12,7 +12,8 @@ const getList = gql`
 
 const addList = gql`
   mutation addList($lists: String!, $listname: String!) {
-    insert_lists(objects: [{ lists: $lists, listname: $listname }]) {
+    insert_lists(objects: [{ lists: $lists, listname: $listname }])
+      @connection(key: "lists") {
       returning {
         listname
         lists

@@ -9,6 +9,7 @@ import ApolloClient from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 import { ApolloProvider } from 'react-apollo';
+//import { ApolloProvider } from '@apollo/react-hooks';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { GRAPHQL_URL } from './constants';
 import About from './components/About';
@@ -16,7 +17,7 @@ import Resources from './components/Resources';
 import PostList from './components/PostList';
 import PostList2 from './components/PostList2';
 import PostList3 from './components/PostList3';
-import PostList4 from './components/PostList4';
+import PostList5 from './components/PostList5';
 import NewPost from './components/NewPost';
 import ListComponent from './components/ListComponent';
 import Pomodoro from './components/Pomodoro';
@@ -85,8 +86,8 @@ export const makeMainRoutes = () => {
           render={props => provideClient(<PostList3 auth={auth} {...props} />)}
         />
         <Route
-          path="/postlist4"
-          render={props => provideClient(<PostList4 auth={auth} {...props} />)}
+          path="/postlist5"
+          render={props => provideClient(<PostList5 auth={auth} {...props} />)}
         />
         <Route
           path="/postinput"

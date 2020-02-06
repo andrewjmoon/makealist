@@ -13,11 +13,11 @@ const handleScroll = ({ currentTarget }, onLoadMore) => {
   }
 };
 
-const List = ({ onLoadMore, lists, id }) => {
+const List = ({ onLoadMore }) => {
   return (
     <div>
       <Query query={getList}>
-        {({ error, loading, refetch }) => {
+        {({ data: lists, error, loading, refetch }) => {
           if (loading) return <div>Loading...</div>;
           if (error) return <div>Error...</div>;
           return (
